@@ -1,5 +1,6 @@
 import Lib_Complex_Vec_y_Mat as lc
 import unittest
+import numpy as np
 
 class Test_operations_complex_matriz_vector(unittest.TestCase):
 
@@ -140,6 +141,68 @@ class Test_operations_complex_matriz_vector(unittest.TestCase):
                                     [complex(-5, 1), complex(5, 3)])
         self.assertAlmostEqual(accion[0], complex(-14, 30))
         self.assertAlmostEqual(accion[1], complex(-69, -5))
+
+
+    def test_produc_intern_cplx(self):
+        vec_a = [3-8j, 7, 1, 4+3j]
+        vec_b = [2j, 5-4j, 7j, 3j]
+        respm = 28-3j
+        respc = lc.produc_intern_cplx(vec_a, vec_b)
+        self.assertAlmostEqual(respc, respm)
+
+    def test_produc_intern_cplx(self):
+        vec_a = [3 + 4j, 8, 0, 1 + 3j]
+        vec_b = [1j, 5 - 4j, 7j, 3j]
+        respm = 53 - 26j
+        respc = lc.produc_intern_cplx(vec_a, vec_b)
+        self.assertAlmostEqual(respc, respm)
+
+    def test_norma_vec_cplx(self):
+        vec_a = [1 + 2j, 3 - 4j, -3j]
+        respm = 6.24
+        respc = lc.norma_vec_cplx(vec_a)
+        self.assertAlmostEqual(respc, respm)
+
+    def test_norma_vec_cplx(self):
+        vec_a = [3+2j,4-4j,-2j]
+        respm = 7.0
+        respc = lc.norma_vec_cplx(vec_a)
+        self.assertAlmostEqual(respc, respm)
+    def test_dist_vec_cplx(self):
+        vec_a = [2,2-1j,4+4j]
+        vec_b = [5-3j,-1j,4j]
+        respm = 6.16
+        respc = lc.dist_vec_cplx(vec_a, vec_b)
+        self.assertAlmostEqual(respc, respm)
+
+    def test_dist_vec_cplx(self):
+        vec_a = [4, 2 - 1j, 2 + 4j]
+        vec_b = [4 - 3j, -1j, 2j]
+        respm = 4.58
+        respc = lc.dist_vec_cplx(vec_a, vec_b)
+        self.assertAlmostEqual(respc, respm)
+
+    def test_vec_propios(self):
+        matr_a = np.array([[-1, -1j], [1j, 1]])
+        respm = np.array([0.92 + 0.j, -0. - 0.38j])
+        respc = lc.vec_propios(matr_a)
+        np.testing.assert_allclose(respc, respm)
+    def test_val_propios(self):
+        matr_a = np.array([[-6,-1j],[6j,1]])
+        respm = np.array([-1.41+0.j, 1.41+0.j])
+        respc = lc.val_propios(matr_a)
+        np.testing.assert_allclose(respc, respm)
+
+
+    def test_val_propios(self):
+        matr_a = np.array([[-1, -1j], [1j, 1]])
+        respm = np.array([-1.41+0.j, 1.41+0.j])
+        respc = lc.val_propios(matr_a)
+        np.testing.assert_allclose(respc, respm)
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

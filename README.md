@@ -17,7 +17,11 @@ La librería incluye las siguientes operaciones para vectores y matrices de nume
 - **Adjunta (daga) de una matriz/vector:** `adjunta_matriz(matr_a)`
 - **Producto de dos matrices (de tamaños compatibles):** `mult_matriz_compatibles(matr_a, matr_b)`
 - **Función para calcular la "acción" de una matriz sobre un vector.:** `accion_matriz_vector(matr_a, vector)`
-
+- **Producto interno de dos vectores.:** `produc_intern_cplx(vec_a,vec_b)`
+- **Norma de un vector.:** `norma_vec_cplx(vec_a)`
+- **Distancia entre dos vectores.:** `dist_vec_cplx(vec_a,vec_b)`
+- **Valores propios de una matriz.:** `vec_propios(matr_a)`
+- **Vectores propios de una matriz.:** `val_propios(matr_a)`
 ## Uso
 
 1. Clona este repositorio en tu máquina local.
@@ -64,7 +68,7 @@ class Test_operations_complex_matriz_vector(unittest.TestCase):
 - [PyCharm 3.11](https://www.jetbrains.com/pycharm/)
 
 ## Versión
-**Primera Versión**
+**Segunda Versión**
 
 ## Autor
 **Jose Ricardo Vasquez Vega**
