@@ -150,7 +150,7 @@ class Test_operations_complex_matriz_vector(unittest.TestCase):
         respc = lc.produc_intern_cplx(vec_a, vec_b)
         self.assertAlmostEqual(respc, respm)
 
-    def test_produc_intern_cplx(self):
+    def test_produc_intern_cplx2(self):
         vec_a = [3 + 4j, 8, 0, 1 + 3j]
         vec_b = [1j, 5 - 4j, 7j, 3j]
         respm = 53 - 26j
@@ -163,7 +163,7 @@ class Test_operations_complex_matriz_vector(unittest.TestCase):
         respc = lc.norma_vec_cplx(vec_a)
         self.assertAlmostEqual(respc, respm)
 
-    def test_norma_vec_cplx(self):
+    def test_norma_vec_cplx2(self):
         vec_a = [3+2j,4-4j,-2j]
         respm = 7.0
         respc = lc.norma_vec_cplx(vec_a)
@@ -175,7 +175,7 @@ class Test_operations_complex_matriz_vector(unittest.TestCase):
         respc = lc.dist_vec_cplx(vec_a, vec_b)
         self.assertAlmostEqual(respc, respm)
 
-    def test_dist_vec_cplx(self):
+    def test_dist_vec_cplx2(self):
         vec_a = [4, 2 - 1j, 2 + 4j]
         vec_b = [4 - 3j, -1j, 2j]
         respm = 4.58
@@ -187,27 +187,26 @@ class Test_operations_complex_matriz_vector(unittest.TestCase):
         respm = np.array([0.92 + 0.j, -0. - 0.38j])
         respc = lc.vec_propios(matr_a)
         np.testing.assert_allclose(respc, respm)
+
     def test_val_propios(self):
         matr_a = np.array([[-6,-1j],[6j,1]])
-        respm = np.array([-1.41+0.j, 1.41+0.j])
+        respm = np.array([-6.77, 1.77])
         respc = lc.val_propios(matr_a)
         np.testing.assert_allclose(respc, respm)
 
 
-    def test_val_propios(self):
+    def test_val_propios2(self):
         matr_a = np.array([[-1, -1j], [1j, 1]])
         respm = np.array([-1.41+0.j, 1.41+0.j])
         respc = lc.val_propios(matr_a)
         np.testing.assert_allclose(respc, respm)
-
-
     def test_matriz_unitaria(self):
         u = [[2 / 3, (-2 + 1j) / 3], [(2 + 1j) / 3, 2 / 3]]
         respm = "La matriz ingresada es unitaria"
         respc = lc.matriz_unitaria(u)
         self.assertEqual(respc, respm)
 
-    def test_matriz_unitaria(self):
+    def test_matriz_unitaria2(self):
         u = [[2 / 3, (-8 + 1j) / 3], [(2 + 1j) / 3, 2 / 3]]
         respm = "La matriz ingresada NO es unitaria"
         respc = lc.matriz_unitaria(u)
@@ -219,11 +218,12 @@ class Test_operations_complex_matriz_vector(unittest.TestCase):
         respc = lc.matriz_hermitiana(u)
         self.assertEqual(respc, respm)
 
-    def test_matriz_hermitiana(self):
+    def test_matriz_hermitiana2(self):
         u = [[9, 2 - 8j, -5j], [2 + 1j, 0, 9 - 5j], [5j, 9 + 5j, 6]]
         respm = "La matriz ingresada NO es hermitiana"
         respc = lc.matriz_hermitiana(u)
         self.assertEqual(respc, respm)
+
 
     def test_produc_tensor_matriz_vector(self):
         u = [[5, 3], [5, 4]]
@@ -232,7 +232,7 @@ class Test_operations_complex_matriz_vector(unittest.TestCase):
         respc = lc.produc_tensor_matriz_vec(u, v)
         self.assertAlmostEqual(respc, respm)
 
-    def test_produc_tensor_matriz_vector(self):
+    def test_produc_tensor_matriz_vector2(self):
         u = [[2, 3], [1, 4]]
         v = [[5, 3, 2], [1, 0, 2], [-2, 5, 6]]
         respm = [[10, 6, 4, 15, 9, 6], [2, 0, 4, 3, 0, 6], [-4, 10, 12, -6, 15, 18], [5, 3, 2, 20, 12, 8],
