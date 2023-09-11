@@ -86,8 +86,8 @@ class Test_operations_complex_matriz_vector(unittest.TestCase):
     def test_transp_complex_matriz_vector2(self):
         transp = lc.transp_complex_matriz_vector([[complex(3, 2), complex(3, -1)],[complex(3, 4), complex(-3, 5)]])
         self.assertAlmostEqual(transp[0][0], complex(3, 2))
-        self.assertAlmostEqual(transp[0][1], complex(3, -1))
-        self.assertAlmostEqual(transp[1][0], complex(3, 4))
+        self.assertAlmostEqual(transp[0][1], complex(3, 4))
+        self.assertAlmostEqual(transp[1][0], complex(3, -1))
         self.assertAlmostEqual(transp[1][1], complex(-3, 5))
 
     def test_conjugada_matriz(self):
@@ -110,8 +110,8 @@ class Test_operations_complex_matriz_vector(unittest.TestCase):
     def test_adjunta_matriz2(self):
         adjunta = lc.adjunta_matriz([[complex(3, 2), complex(3, -5)], [complex(2, 4), complex(-2, 6)]])
         self.assertAlmostEqual(adjunta[0][0], complex(3, -2))
-        self.assertAlmostEqual(adjunta[0][1], complex(3, 5))
-        self.assertAlmostEqual(adjunta[1][0], complex(2, -4))
+        self.assertAlmostEqual(adjunta[0][1], complex(2, -4))
+        self.assertAlmostEqual(adjunta[1][0], complex(3, 5))
         self.assertAlmostEqual(adjunta[1][1], complex(-2, -6))
 
     def test_mult_matriz_compatibles(self):
@@ -201,7 +201,44 @@ class Test_operations_complex_matriz_vector(unittest.TestCase):
         np.testing.assert_allclose(respc, respm)
 
 
+    def test_matriz_unitaria(self):
+        u = [[2 / 3, (-2 + 1j) / 3], [(2 + 1j) / 3, 2 / 3]]
+        respm = "La matriz ingresada es unitaria"
+        respc = lc.matriz_unitaria(u)
+        self.assertEqual(respc, respm)
 
+    def test_matriz_unitaria(self):
+        u = [[2 / 3, (-8 + 1j) / 3], [(2 + 1j) / 3, 2 / 3]]
+        respm = "La matriz ingresada NO es unitaria"
+        respc = lc.matriz_unitaria(u)
+        self.assertEqual(respc, respm)
+
+    def test_matriz_hermitiana(self):
+        u = [[3, 2 - 1j, -5j], [2 + 1j, 0, 9 - 5j], [5j, 9 + 5j, 6]]
+        respm = "La matriz ingresada es hermitiana"
+        respc = lc.matriz_hermitiana(u)
+        self.assertEqual(respc, respm)
+
+    def test_matriz_hermitiana(self):
+        u = [[9, 2 - 8j, -5j], [2 + 1j, 0, 9 - 5j], [5j, 9 + 5j, 6]]
+        respm = "La matriz ingresada NO es hermitiana"
+        respc = lc.matriz_hermitiana(u)
+        self.assertEqual(respc, respm)
+
+    def test_produc_tensor_matriz_vector(self):
+        u = [[5, 3], [5, 4]]
+        v = [[1, 3, 2], [6, 0, 2], [-9, 5, 6]]
+        respm = [[5, 15, 10, 3, 9, 6], [30, 0, 10, 18, 0, 6], [-45, 25, 30, -27, 15, 18], [5, 15, 10, 4, 12, 8], [30, 0, 10, 24, 0, 8], [-45, 25, 30, -36, 20, 24]]
+        respc = lc.produc_tensor_matriz_vec(u, v)
+        self.assertAlmostEqual(respc, respm)
+
+    def test_produc_tensor_matriz_vector(self):
+        u = [[2, 3], [1, 4]]
+        v = [[5, 3, 2], [1, 0, 2], [-2, 5, 6]]
+        respm = [[10, 6, 4, 15, 9, 6], [2, 0, 4, 3, 0, 6], [-4, 10, 12, -6, 15, 18], [5, 3, 2, 20, 12, 8],
+                 [1, 0, 2, 4, 0, 8], [-2, 5, 6, -8, 20, 24]]
+        respc = lc.produc_tensor_matriz_vec(u, v)
+        self.assertAlmostEqual(respc, respm)
 
 
 if __name__ == '__main__':

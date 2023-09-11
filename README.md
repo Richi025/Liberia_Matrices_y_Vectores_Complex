@@ -22,6 +22,10 @@ La librería incluye las siguientes operaciones para vectores y matrices de nume
 - **Distancia entre dos vectores.:** `dist_vec_cplx(vec_a,vec_b)`
 - **Valores propios de una matriz.:** `vec_propios(matr_a)`
 - **Vectores propios de una matriz.:** `val_propios(matr_a)`
+- **Revisar si una matriz es unitaria.:** `matriz_unitaria(matr_a)`
+- **Revisar si una matriz es Hermitiana.:** `matriz_hermitiana(matr_a)`
+- **Producto tensor de dos matrices/vectores.:** `produc_tensor_matriz_vec(matr_a, matr_b)`
+
 ## Uso
 
 1. Clona este repositorio en tu máquina local.
@@ -68,7 +72,7 @@ class Test_operations_complex_matriz_vector(unittest.TestCase):
 - [PyCharm 3.11](https://www.jetbrains.com/pycharm/)
 
 ## Versión
-**Segunda Versión**
+**Tercera Versión**
 
 ## Autor
 **Jose Ricardo Vasquez Vega**
